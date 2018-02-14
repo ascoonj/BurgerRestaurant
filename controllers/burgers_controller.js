@@ -6,11 +6,11 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get('/', function(req, res) {
-	res.redirect('/index');
+	res.redirect('/burgers');
 });
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/index", function(req, res) {
+router.get("/burgers", function(req, res) {
   burger.selectAll(function(data) {
     var hbsObject = {
       burgers: data
@@ -20,13 +20,10 @@ router.get("/index", function(req, res) {
   });
 });
 
-router.post("/", function(req, res) {
+router.post("/burgers/new", function(req, res) {
   burger.insertOne([
-    "burger_name", "devoured"
-  ], [
-    req.body.burger_name, 0
-  ], function() {
-    res.redirect("/index");
+    "burger_name", "devoured"], [req.body.burger_name, 0], function() {
+    res.redirect("/burgers");
   });
 });
 
@@ -35,10 +32,8 @@ router.put("/:id", function(req, res) {
 
   console.log("condition", condition);
 
-  burger.updateOne({
-    devoured: req.body.devoured
-  }, condition, function() {
-    res.redirect("/index");
+  burger.updateOne({devoured: req.body.devoured}, condition, function() {
+    res.redirect("/burgers");
   });
 });
 
@@ -46,7 +41,7 @@ router.delete("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   burger.delete(condition, function() {
-    res.redirect("/index");
+    res.redirect("/burgers");
   });
 });
 

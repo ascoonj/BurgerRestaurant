@@ -1,0 +1,20 @@
+<div class="container">
+    <div>
+        <img class="img-responsive" src="assets/images/burgerbw.jpg" alt="black and white burger" />
+        <h2>Eat-Da-Burger</h2>
+
+        <div id="burgersToEat">
+            <h3>Have a burger!</h3>
+            <ul class="list-group">
+                {{#each burgers}} {{#unless this.devoured}}
+                <li class="list-group-item" "uneaten">
+                    <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                        {{this.id}}.{{this.burger_name}}
+                        <input type="hidden" name="devoured" value="true">
+                        <button type="submit" class="eatBurger">Eat me!!</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
