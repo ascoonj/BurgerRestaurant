@@ -1,17 +1,17 @@
 <div class="container">
     <div class = "row heading">
         <div class="col-md-12">
-            <img class="img-responsive" id="burgerlogo" src="assets/images/delicious.png" alt="delicious burgers" />
+            <img class="img-responsive" id="burgerlogo" src="assets/images/delicious.png" width="340" height ="340" alt="delicious burgers" />
         </div>
     </div>
         
     <div class = "row burgerDisplay">
         <div class = "col-md-5" id = "burgersToEat">
-            <h3>Have a burger!</h3>
+            <h2>Have a burger!</h2>
             <ul class="list-group">
                 {{#each burgers}} {{#unless this.devoured}}
                 <li class="list-group-item uneaten">
-                    <form action="burgers/update/{{this.id}}?" method="PUT">
+                    <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
                         <img class="img-responsive" src="assets/images/tiny.jpg" alt="delicious burgers" align= "left" /> {{this.burger_name}}
                         <input type="hidden" name="devoured" value="true">
                         <button type="submit" class="eatBurger">Eat me!!</button>
@@ -26,7 +26,7 @@
         </div>
 
         <div class = "col-md-5" id = "burgersEaten">
-            <h3>Devoured Burgers!</h3>
+            <h2>Devoured Burgers!</h2>
             <ul class="list-group">
                 {{#each burgers}} {{#if this.devoured}}
                 <li class="list-group-item eaten">
@@ -39,9 +39,9 @@
 
     </div>
 
-    <div class = "row buttonHolder">
-        <div class="col-md-12">
-            <h3>Add your own burger</h3>
+    <div class = "row">
+        <div class="col-md-12 text-center">
+            <h2>Add your own burger</h2>
             <form class="newBurger" action="burgers/new" method="POST">
 
 				<div class="form-group">

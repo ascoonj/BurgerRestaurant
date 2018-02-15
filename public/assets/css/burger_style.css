@@ -12,6 +12,7 @@
     height: 100%;
     border: 1px solid black;
     padding: 20px;
+    font-family: 'Boogaloo', cursive;
 }
 
 .row {
@@ -29,7 +30,7 @@
     /* width: 40%; */
 }
 
-h3 {
+h2 {
     text-align: center;
 }
 
@@ -43,4 +44,13 @@ h3 {
 
 img {
     padding: none;
+}
+
+form {
+    display: inline-block;
+    text-align: center;
+}
+
+li {
+    font-size: 16px;
 }

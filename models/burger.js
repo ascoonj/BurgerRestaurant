@@ -5,15 +5,15 @@ const Burger = {
         orm.selectAll("burgers", callback);
     },
 
-    insertOne: function (cols, vals, cb) {
+    insertOne: function (cols, vals, callback) {
         orm.insertOne('burgers', cols, vals, function (res) {
-            cb(res);
+            callback(res);
         });
     },
 
-    updateOne: function (objColVals, condition, cb) {
+    updateOne: function (objColVals, condition, callback) {
         orm.updateOne("burgers", objColVals, condition, function (res) {
-            cb(res);
+            callback(res);
         });
     }
 

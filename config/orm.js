@@ -51,6 +51,7 @@ var orm = {
       callback(result);
     });
   },
+  
   insertOne: function(table, cols, vals, callback) {
     var queryString = "INSERT INTO " + table;
 
