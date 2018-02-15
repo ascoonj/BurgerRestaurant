@@ -1,6 +1,12 @@
 var mysql = require("mysql");
 
-var pass = require("./keys.js");
+try {
+  var pass = require("./keys.js");
+}
+catch (error) {
+  console.log("An error occured");
+  console.log(error);
+}
 
 var connection;
 
