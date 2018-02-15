@@ -2,7 +2,7 @@ var express = require("express");
 var path = require("path");
 var exphbs = require("express-handlebars");
 var methodOverride = require("method-override");
-var routes = require("./controllers/burgers_Controller.js");
+var routes = require("./controllers/burgers_controller.js");
 
 var app = express();
 
