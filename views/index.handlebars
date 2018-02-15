@@ -1,20 +1,63 @@
 <div class="container">
-    <div>
-        <img class="img-responsive" src="assets/images/burgerbw.jpg" alt="black and white burger" />
-        <h2>Eat-Da-Burger</h2>
-
-        <div id="burgersToEat">
+    <div class = "row heading">
+        <div class="col-md-12">
+            <img class="img-responsive" id="burgerlogo" src="assets/images/delicious.png" alt="delicious burgers" />
+        </div>
+    </div>
+        
+    <div class = "row burgerDisplay">
+        <div class = "col-md-5" id = "burgersToEat">
             <h3>Have a burger!</h3>
             <ul class="list-group">
                 {{#each burgers}} {{#unless this.devoured}}
-                <li class="list-group-item" "uneaten">
-                    <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-                        {{this.id}}.{{this.burger_name}}
+                <li class="list-group-item uneaten">
+                    <form action="burgers/update/{{this.id}}?" method="PUT">
+                        <img class="img-responsive" src="assets/images/tiny.jpg" alt="delicious burgers" align= "left" /> {{this.burger_name}}
                         <input type="hidden" name="devoured" value="true">
                         <button type="submit" class="eatBurger">Eat me!!</button>
                     </form>
                 </li>
+                {{/unless}} {{/each}}
             </ul>
         </div>
+
+        <div class = "col-md-2" id = "blank">
+            <h3></h3>
+        </div>
+
+        <div class = "col-md-5" id = "burgersEaten">
+            <h3>Devoured Burgers!</h3>
+            <ul class="list-group">
+                {{#each burgers}} {{#if this.devoured}}
+                <li class="list-group-item eaten">
+                 <img class="img-responsive" src="assets/images/tiny.jpg" alt="tiny burger" align= "left" />
+                 <span>   {{this.burger_name}} </span>
+                </li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+
     </div>
+
+    <div class = "row buttonHolder">
+        <div class="col-md-12">
+            <h3>Add your own burger</h3>
+            <form class="newBurger" action="burgers/new" method="POST">
+
+				<div class="form-group">
+					<label for="burgerName" class="addNewBurger">Burger Name:</label>
+					<input type="text" id="burgerName" name="name" autofocus>
+				</div>
+
+				<button type="submit" class="button-add">Add Burger</button>
+			</form>
+        </div>
+    </div>
+
+    
+
+
+
+
+
 </div>
