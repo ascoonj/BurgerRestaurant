@@ -25,7 +25,7 @@ Users are able to input the names of burgers they'd like to eat, log it onto a m
 
 See a screenshot below for a glimpse of the final product, or click [here](https://glacial-plains-20153.herokuapp.com) to view and use live app.
 
-![BurgerRestaurantSample](./public/assets/images/burgerApp.jpg)
+![BurgerRestaurantSample](./public/assets/images/burgerApp.JPG)
 
 
 
